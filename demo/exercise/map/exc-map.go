@@ -8,8 +8,6 @@
 //  - number of servers
 //  - number of servers for each status (Online, Offline, Maintenance, Retired)
 
-
-
 package main
 
 import "fmt"
@@ -46,8 +44,7 @@ func printStatus(servers map[string]int) {
 	fmt.Println("Total Online", stats[Online])
 	fmt.Println("Total Offline", stats[Offline])
 	fmt.Println("Total Maintenance", stats[Maintenance])
-	fmt.Println("Total Retired", stats[Retired])
-	fmt.Println("\n")
+	fmt.Println("Total Retired", stats[Retired], "\n")
 }
 
 
