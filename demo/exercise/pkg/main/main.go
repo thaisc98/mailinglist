@@ -10,5 +10,5 @@ import (
 func main(){
 	msg.Hi()
 	display.Display("Hello from display")
-	msg.Exciting("an existing message")
+	msg.Exciting("an existing messagev")
 }
