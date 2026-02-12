@@ -12,11 +12,11 @@ import (
 	"os"
 	"strings"
 
-	"github.com/chai2020/webp"
+	"github.com/chai2010/webp"
 	"github.com/google/uuid"
 )
 
-func bse65ToRawImagE(base64Img string) image.Image{
+func base64ToRawImage(base64Img string) image.Image{
 	reader := base64.NewDecoder(base64.StdEncoding, strings.NewReader(base64Img))
 	img, _, err := image.Decode(reader)
 	if err != nil {
@@ -52,12 +52,30 @@ func makeWork(base64Images ...string) <-chan string {
 	return out
 }
 
+func pipeline[I any, O any](input <-chan I, process func(I) O) <-chan O {
+	out := make(chan O)
+	go func(){
+		for in := range input {
+			out <- process(in)
+		}
+		close(out)
+	}()
+	return out
+}
+
 func main() {
 	//load data into pipeline
-
+	base64Images := makeWork(img1, img2, img3)
 	//decore base64 into image format
+	rawImages := pipeline(base64Images, base64ToRawImage)
 	//enconde as webp
+	webpImages := pipeline(rawImages, encodeToWebp)
 	//save images to disk
+	filenames := pipeline(webpImages, saveToDisk)
+	
+	for name := range filenames {
+		fmt.Println(name)
+	}
 
 }
 
