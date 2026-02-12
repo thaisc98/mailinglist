@@ -1,6 +1,64 @@
 package main
 
+import (
+	"bytes"
+	"encoding/base64"
+	"fmt"
+	"image"
+	_ "image/gif"
+	_ "image/jpeg"
+	_ "image/png"
+	"log"
+	"os"
+	"strings"
+
+	"github.com/chai2020/webp"
+	"github.com/google/uuid"
+)
+
+func bse65ToRawImagE(base64Img string) image.Image{
+	reader := base64.NewDecoder(base64.StdEncoding, strings.NewReader(base64Img))
+	img, _, err := image.Decode(reader)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return img
+}
+
+func encodeToWebp(img image.Image) bytes.Buffer {
+	var buf bytes.Buffer
+	if err := webp.Encode(&buf, img, &webp.Options{Lossless: true}); err != nil {
+		log.Fatal(err)
+	} 
+	return buf
+}
+
+func saveToDisk(imgBuf bytes.Buffer) string{
+	filename := fmt.Sprintf("%v.webp", uuid.New().String())
+	os.WriteFile(filename, imgBuf.Bytes(), 0644)
+	return filename
+}
+
+func makeWork(base64Images ...string) <-chan string {
+	out := make(chan string)
+
+	go func(){
+		for _, encondedImg := range base64Images {
+			out <- encondedImg
+		}
+		close(out)
+	}()
+
+	return out
+}
+
 func main() {
+	//load data into pipeline
+
+	//decore base64 into image format
+	//enconde as webp
+	//save images to disk
+
 }
 
 const img1 = `
