@@ -2,10 +2,8 @@ package mdb
 
 import (
 	"database/sql"
-	"errors"
 	"log"
 	"time"
-
 	"github.com/mattn/go-sqlite3"
 )
 
@@ -102,7 +100,7 @@ func UpdateEmail(db *sql.DB, entry EmailEntry) error {
 	return nil
 }
 
-func DeleteEmail(db *sql.DB, email string) errpr {
+func DeleteEmail(db *sql.DB, email string) error {
 	_, err := db.Exec(`
 		UPDATE emails 
 		SET opt_out=true 
