@@ -17,8 +17,6 @@ Alternatively you can download a pre-built binary from [https://github.com/proto
 ## Generate Go code from .proto files
 
 ```
-protoc --go_out=. --go_opt=paths=source_relative \
-  --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-  Proto/mail.proto
+protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto/mail.proto
 ```
 
