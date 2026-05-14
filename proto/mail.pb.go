@@ -436,10 +436,10 @@ const file_proto_mail_proto_rawDesc = "" +
 	"emailEntry\x88\x01\x01B\x0e\n" +
 	"\f_email_entry\"O\n" +
 	"\x15GetEmailBatchResponse\x126\n" +
-	"\remail_entries\x18\x01 \x03(\v2\x11.proto.EmailEntryR\femailEntries2\xe3\x02\n" +
+	"\remail_entries\x18\x01 \x03(\v2\x11.proto.EmailEntryR\femailEntries2\xe4\x02\n" +
 	"\x12MailingListService\x12@\n" +
-	"\vCreateEmail\x12\x19.proto.CreateEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x129\n" +
-	"\aGetmail\x12\x16.proto.GetEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x12@\n" +
+	"\vCreateEmail\x12\x19.proto.CreateEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x12:\n" +
+	"\bGetEmail\x12\x16.proto.GetEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x12@\n" +
 	"\vUpdateEmail\x12\x19.proto.UpdateEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x12@\n" +
 	"\vDeleteEmail\x12\x19.proto.DeleteEmailRequest\x1a\x14.proto.EmailResponse\"\x00\x12L\n" +
 	"\rGetEmailBatch\x12\x1b.proto.GetEmailBatchRequest\x1a\x1c.proto.GetEmailBatchResponse\"\x00B\x13Z\x11mailinglist/protob\x06proto3"
@@ -472,12 +472,12 @@ var file_proto_mail_proto_depIdxs = []int32{
 	0, // 1: proto.EmailResponse.email_entry:type_name -> proto.EmailEntry
 	0, // 2: proto.GetEmailBatchResponse.email_entries:type_name -> proto.EmailEntry
 	1, // 3: proto.MailingListService.CreateEmail:input_type -> proto.CreateEmailRequest
-	2, // 4: proto.MailingListService.Getmail:input_type -> proto.GetEmailRequest
+	2, // 4: proto.MailingListService.GetEmail:input_type -> proto.GetEmailRequest
 	3, // 5: proto.MailingListService.UpdateEmail:input_type -> proto.UpdateEmailRequest
 	4, // 6: proto.MailingListService.DeleteEmail:input_type -> proto.DeleteEmailRequest
 	5, // 7: proto.MailingListService.GetEmailBatch:input_type -> proto.GetEmailBatchRequest
 	6, // 8: proto.MailingListService.CreateEmail:output_type -> proto.EmailResponse
-	6, // 9: proto.MailingListService.Getmail:output_type -> proto.EmailResponse
+	6, // 9: proto.MailingListService.GetEmail:output_type -> proto.EmailResponse
 	6, // 10: proto.MailingListService.UpdateEmail:output_type -> proto.EmailResponse
 	6, // 11: proto.MailingListService.DeleteEmail:output_type -> proto.EmailResponse
 	7, // 12: proto.MailingListService.GetEmailBatch:output_type -> proto.GetEmailBatchResponse
