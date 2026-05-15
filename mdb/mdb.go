@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"time"
+
 	"github.com/mattn/go-sqlite3"
 )
 
@@ -89,7 +90,7 @@ func UpdateEmail(db *sql.DB, entry EmailEntry) error {
 	emails(email, confirmed_at, opt_out) 
 	VALUES (?, ?, ?)
 	ON CONFLICT(email) DO UPDATE SET
-	confirmed_at=?
+	confirmed_at=?,
 	opt_out=?`, entry.Email, t, entry.OptOut, t, entry.OptOut)
 
 	if err != nil {

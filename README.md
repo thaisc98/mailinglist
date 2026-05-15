@@ -20,3 +20,22 @@ Alternatively you can download a pre-built binary from [https://github.com/proto
 protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto/mail.proto
 ```
 
+## Running the Server
+
+Open a terminal in the project root directory and run:
+
+```bash
+go run ./server
+```
+
+The server will start and listen for incoming connections.
+
+## Running the Client
+
+Open a **separate** terminal in the project root directory and run:
+
+```bash
+go run ./client
+```
+
+The client will start and connect to the server.
